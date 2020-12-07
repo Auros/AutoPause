@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "AutoPause",
+  "name": "AutoPause",
+  "author": "Auros",
+  "version": "7.0.0",
+  "description": "A mod which pauses your game on tracking loss or FPS drops.",
+  "gameVersion": "1.13.0",
+  "dependsOn": {
+    "BSIPA": "^4.0.5"
+  }
+}
