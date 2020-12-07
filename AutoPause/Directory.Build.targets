@@ -44,7 +44,7 @@
     </PropertyGroup>
   </Target>
   <!--Build target for Continuous Integration builds. Set up for GitHub Actions.-->
-  <Target Name="BuildForCI" AfterTargets="ILRepack" DependsOnTargets="GetProjectInfo" Condition="'$(ContinuousIntegrationBuild)' == 'True' AND '$(BSMTTaskAssembly)' != ''">
+  <Target Name="BuildForCI" AfterTargets="Build" DependsOnTargets="GetProjectInfo" Condition="'$(ContinuousIntegrationBuild)' == 'True' AND '$(BSMTTaskAssembly)' != ''">
     <PropertyGroup>
       <!--Set 'ArtifactName' if it failed before.-->
       <ArtifactName Condition="'$(ArtifactName)' == ''">$(AssemblyName)</ArtifactName>
@@ -58,7 +58,7 @@
     <Copy SourceFiles="$(OutputAssemblyName).dll" DestinationFiles="$(ProjectDir)$(ArtifactDestination)\Plugins\$(AssemblyName).dll" />
   </Target>
   <!--Creates a BeatMods compliant zip file with the release.-->
-  <Target Name="ZipRelease" AfterTargets="ILRepack" Condition="'$(DisableZipRelease)' != 'True' AND '$(Configuration)' == 'Release' AND '$(BSMTTaskAssembly)' != ''">
+  <Target Name="ZipRelease" AfterTargets="Build" Condition="'$(DisableZipRelease)' != 'True' AND '$(Configuration)' == 'Release' AND '$(BSMTTaskAssembly)' != ''">
     <PropertyGroup>
       <!--Set 'ArtifactName' if it failed before.-->
       <ArtifactName Condition="'$(ArtifactName)' == ''">$(AssemblyName)</ArtifactName>
@@ -73,7 +73,7 @@
     <ZipDir SourceDirectory="$(ArtifactDestination)" DestinationFile="$(DestinationDirectory)$(ArtifactName).zip" />
   </Target>
   <!--Copies the assembly and pdb to the Beat Saber folder.-->
-  <Target Name="CopyToPlugins" AfterTargets="ILRepack" Condition="'$(DisableCopyToPlugins)' != 'True' AND '$(ContinuousIntegrationBuild)' != 'True'">
+  <Target Name="CopyToPlugins" AfterTargets="Build" Condition="'$(DisableCopyToPlugins)' != 'True' AND '$(ContinuousIntegrationBuild)' != 'True'">
     <PropertyGroup>
       <PluginDir>$(BeatSaberDir)\Plugins</PluginDir>
       <CanCopyToPlugins>True</CanCopyToPlugins>

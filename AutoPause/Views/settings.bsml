@@ -1,0 +1,10 @@
+﻿<bg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <scrollable-settings-container>
+    <bool-setting text="Enabled" value="enabled" />
+    <slider-setting text="FPS Threshold" integer-only="true" min="10" max="140" value="fps-threshold" />
+    <bool-setting text="Detect Tracking" value="detect-tracking" />
+    <bool-setting text="Detect FPS" value="detect-fps" />
+    <bool-setting text="Do Voices" value="do-voices" />
+    <dropdown-list-setting text="Sensitivity" value="sensitivity" options="sensitivities" />
+  </scrollable-settings-container>
+</bg>
